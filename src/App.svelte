@@ -8,7 +8,7 @@
   let colours = [randomColour()];
   let speed = 0;
 
-  const PI_URL = "http://192.168.0.242";
+  const PI_URL = "http://192.168.0.241";
 
   const pushConfig = async () => {
     const body = {
@@ -26,7 +26,6 @@
 
   const changeColour = async (index, colour) => {
     colours[index] = colour;
-    console.log(colours);
     await pushConfig();
   };
 
@@ -41,9 +40,9 @@
   };
 
   const onSpeedChange = async (newSpeed) => {
-    speed = newSpeed
+    speed = newSpeed;
     await pushConfig();
-  }
+  };
 </script>
 
 <main>
@@ -54,11 +53,11 @@
   <div class="add-colour">
     <AddColour {onAddColour} />
     {#if colours.length > 1}
-    <RemoveColour {onPopColour} />
+      <RemoveColour {onPopColour} />
     {/if}
   </div>
 
-  <Slider {speed} {onSpeedChange}/>
+  <Slider {speed} {onSpeedChange} />
 </main>
 
 <style>
@@ -67,6 +66,8 @@
     flex-direction: column;
     align-content: center;
     text-align: center;
+    width: 100%;
+    height: 100%;
   }
 
   .colour-bar {
@@ -81,5 +82,15 @@
     text-transform: uppercase;
     font-size: 4em;
     font-weight: 100;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    main {
+      background-color: #333333;
+    }
+
+    h1 {
+      color: white;
+    }
   }
 </style>

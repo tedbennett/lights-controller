@@ -20,4 +20,19 @@
     color: rgb(0, 0, 0);
     transition: 0.2s;
   }
+
+  @media (prefers-color-scheme: dark) {
+    .fa-plus-square {
+      color: white;
+    }
+
+    .fa-plus-square:hover:before,
+    .fa-plus-square:hover:after {
+      color: white;
+    }
+
+    .fa-plus-square:hover {
+      color: white;
+    }
+  }
 </style>

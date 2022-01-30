@@ -41,4 +41,10 @@
     cursor: pointer;
     border: none;
   }
+
+  @media (prefers-color-scheme: dark) {
+    h3 {
+      color: white;
+    }
+  }
 </style>

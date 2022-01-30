@@ -20,4 +20,19 @@
     color: rgb(0, 0, 0);
     transition: 0.2s;
   }
+
+  @media (prefers-color-scheme: dark) {
+    .fa-minus-square {
+      color: white;
+    }
+
+    .fa-minus-square:hover:before,
+    .fa-minus-square:hover:after {
+      color: white;
+    }
+
+    .fa-minus-square:hover {
+      color: white;
+    }
+  }
 </style>

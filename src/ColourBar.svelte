@@ -29,7 +29,7 @@
 
   .colour-bar {
     /* width: 100%; */
-    background: var(--theme-color);
+    background-color: var(--theme-color);
     border-radius: 12px;
     height: 15px;
     /* margin: 1em; */

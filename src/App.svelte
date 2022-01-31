@@ -4,18 +4,25 @@
   import RemoveColour from "./RemoveColour.svelte";
   import { randomColour } from "./colours.js";
   import Slider from "./Slider.svelte";
+  import { onMount } from "svelte";
 
   let colours = [randomColour()];
   let speed = 0;
 
   const PI_URL = "http://192.168.0.241";
 
+  onMount(async () => {
+    const config = await (await fetch(`${PI_URL}/api/config`)).json();
+    colours = config["colours"];
+    speed = config["delay"];
+  });
+
   const pushConfig = async () => {
     const body = {
-      colors: colours,
+      colours,
       delay: speed / 10,
     };
-    await fetch(PI_URL, {
+    await fetch(`${PI_URL}/api/config`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

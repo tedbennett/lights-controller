@@ -3,7 +3,10 @@
   export let colours = [];
   export let changeColour;
 
-  $: gradient = colours.length === 1 ? colours[0] : `linear-gradient(to right, ${colours.join(",")})`;
+  $: gradient =
+    colours.length === 1
+      ? colours[0]
+      : `linear-gradient(to right, ${colours.join(",")})`;
 </script>
 
 <div class="container">
@@ -29,7 +32,7 @@
 
   .colour-bar {
     /* width: 100%; */
-    background-color: var(--theme-color);
+    background: var(--theme-color);
     border-radius: 12px;
     height: 15px;
     /* margin: 1em; */
